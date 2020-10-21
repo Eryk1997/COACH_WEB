@@ -17,8 +17,8 @@ export default class Login extends Component {
             <div className="row mb-5 mr-5 col-5">
               <img id="front-img" className="ml-5 mt-5" src={front} />
             </div>
-            <div id="wrapper-login" className="col-6 text-warning">
-              Logowanie
+            <div className="col-6 mt-5 text-warning">
+              <div className="text-center">Logowanie</div>
               <div className="mt-4 ml-5">
                 <form>
                   <div class="form-group row">
@@ -45,19 +45,17 @@ export default class Login extends Component {
                       />
                     </div>
                   </div>
-                  <div id="login-register-button" className="row">
+                  <div className="text-center">
                     <button
-                      id="button-login"
                       type="button"
-                      className="btn mt-2 btn-outline-warning"
+                      className="btn col-2 mr-4 mt-2 btn-outline-warning"
                     >
                       Zaloguj
                     </button>
-                    <Link id="link-size" to="/registration">
+                    <Link id="padding-buttons" to="/registration">
                       <button
-                        id="button-register"
                         type="button"
-                        className="btn mt-2 btn-outline-warning"
+                        className="btn col-2 mt-2 btn-outline-warning"
                       >
                         Rejestracja
                       </button>
@@ -68,10 +66,10 @@ export default class Login extends Component {
             </div>
           </div>
           <div className="row ml-4 mr-4 ">
-            <img id="img-left"  className="img-fluid col-3" src={gate} />
-            <img id="padding-img"  className="img-fluid col-3" src={squat} />
-            <img id="padding-img"  className="img-fluid col-3" src={men} />
-            <img id="img-right"  className="img-fluid col-3" src={women} />
+            <img id="img-left" className="img-fluid col-3" src={gate} />
+            <img id="padding-img" className="img-fluid col-3" src={squat} />
+            <img id="padding-img" className="img-fluid col-3" src={men} />
+            <img id="img-right" className="img-fluid col-3" src={women} />
           </div>
         </header>
       </div>
