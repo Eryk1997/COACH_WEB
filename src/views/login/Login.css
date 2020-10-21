@@ -1,0 +1,45 @@
+.App-gradient {
+    background: linear-gradient( rgb(21, 14, 14) 10%,	rgb(61, 55, 55));
+    height: 100%;
+  }
+  
+#wrapper-login{
+  text-align: center;
+  padding-top: 3em;
+}
+
+#button-login{
+  width: 30%;
+  margin-right: 2em;
+}
+#button-register{
+  width: 100%;
+}
+
+#button-{
+  margin-right: 40px;
+  width: 30%;
+}
+
+#link-size{
+  width: 30%;
+}
+
+#login-register-button{
+  margin-left: 8em;
+}
+
+#padding-img{
+  padding: 0px;
+}
+
+#img-left{
+  padding: 0px;
+  border-radius: 35px 0px 0px 35px;
+}
+
+#img-right{
+  padding: 0px;
+  border-radius: 0px 35px 35px 0px;
+}
+

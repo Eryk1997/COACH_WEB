@@ -1,0 +1,27 @@
+
+.App-gradient {
+    background: linear-gradient( rgb(21, 14, 14) 10%,	rgb(61, 55, 55));
+    height: 100%;
+  }
+  
+  .App-text{
+    text-align: center;
+    color: white;
+  }
+  
+  #front-img{
+    border-radius: 80px;
+    width: 90%;
+    height: 70%;
+  }
+  
+  #info-padding{
+    padding-top: 60px;
+  }
+  
+  #carouselExampleIndicators{
+    margin: auto;
+  }
+  #img-radius{
+    border-radius: 80px;
+  }
