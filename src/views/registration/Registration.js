@@ -14,7 +14,7 @@ export default class Registration extends Component {
     return (
       <div className="App">
         <header className="App-gradient">
-          <div className="row">
+          <div className="row mr-0">
             <div className="row mb-5 mr-5 col-5">
               <img id="front-img" className="ml-5 mt-5" src={front} />
             </div>

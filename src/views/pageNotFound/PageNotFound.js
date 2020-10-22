@@ -10,7 +10,7 @@ import third from '../../Pictures/info/Motivational-Gym-Man-Training-Poster-Vari
 export default class PageNotFound extends Component {
   render() {
     return (
-      <header className="App-gradient container-fluid">
+      <header className="App-gradient container-flid">
         <div className="row justify-content-center">
           <div className="row mt-5 mb-5">
             <div
