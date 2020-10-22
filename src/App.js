@@ -9,6 +9,7 @@ import { Switch, Route } from 'react-router-dom';
 import Login from "./views/login/Login";
 import About from "./views/about/About";
 import Registration from "./views/registration/Registration";
+import PageNotFound from "./views/pageNotFound/PageNotFound";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/about" component={About} />
           <Route path="/login" component={Login} />
           <Route path="/registration" component={Registration} />
+          <Route component={PageNotFound} />
         </Switch>
         
       <Footer />
