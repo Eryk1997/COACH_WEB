@@ -11,6 +11,7 @@ import Registration from "./views/registration/Registration";
 import PageNotFound from "./views/pageNotFound/PageNotFound";
 import AddPerson from "./views/addPerson/AddPerson";
 import Proteges from "./views/proteges/Proteges";
+import Settings from "./views/settings/Settings";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/registration" component={Registration} />
           <Route path="/addPerson" component={AddPerson} />
           <Route path="/proteges" component={Proteges} />
+          <Route path="/settings" component={Settings} />
           <Route component={PageNotFound} />
         </Switch>
         
