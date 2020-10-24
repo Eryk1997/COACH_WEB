@@ -4,13 +4,13 @@ import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 
-
 import { Switch, Route } from 'react-router-dom';
 import Login from "./views/login/Login";
 import About from "./views/about/About";
 import Registration from "./views/registration/Registration";
 import PageNotFound from "./views/pageNotFound/PageNotFound";
 import AddPerson from "./views/addPerson/AddPerson";
+import Proteges from "./views/proteges/Proteges";
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/registration" component={Registration} />
           <Route path="/addPerson" component={AddPerson} />
+          <Route path="/proteges" component={Proteges} />
           <Route component={PageNotFound} />
         </Switch>
         
