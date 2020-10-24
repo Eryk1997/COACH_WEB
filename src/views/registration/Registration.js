@@ -24,7 +24,19 @@ export default class Registration extends Component {
                 <form>
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-3 col-form-label">
-                      Nazwa
+                      Imie
+                    </label>
+                    <div className="col-sm-9">
+                      <input
+                        type="text"
+                        className="form-control col-8 bg-secondary text-white"
+                        id="inputEmail3"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">
+                      Nazwisko
                     </label>
                     <div className="col-sm-9">
                       <input
