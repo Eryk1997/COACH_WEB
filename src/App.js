@@ -12,6 +12,7 @@ import PageNotFound from "./views/pageNotFound/PageNotFound";
 import AddPerson from "./views/addPerson/AddPerson";
 import Proteges from "./views/proteges/Proteges";
 import Settings from "./views/settings/Settings";
+import ProtegesInfo from "./views/protegesInfo/ProtegesInfo";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/addPerson" component={AddPerson} />
           <Route path="/proteges" component={Proteges} />
           <Route path="/settings" component={Settings} />
+          <Route path="/protegesInfo" component={ProtegesInfo} />
           <Route component={PageNotFound} />
         </Switch>
         
