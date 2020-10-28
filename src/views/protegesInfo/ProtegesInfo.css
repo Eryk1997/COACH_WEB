@@ -1,0 +1,13 @@
+.App-gradient {
+    background: linear-gradient( rgb(21, 14, 14) 10%,	rgb(61, 55, 55));
+    height: 100%;
+  }
+  
+
+#img-rounded{
+    border-radius: 50%;
+}
+
+#position{
+    padding-left: 32%;
+}
