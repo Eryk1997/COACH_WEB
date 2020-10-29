@@ -12,7 +12,7 @@ export default class Login extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-gradient">
+        <header className="">
           <div className="row mr-0">
             <div className="row mb-5 mr-5 col-5">
               <img id="front-img" className="ml-5 mt-5" src={front} />

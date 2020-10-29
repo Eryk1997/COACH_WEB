@@ -13,6 +13,8 @@ import AddPerson from "./views/addPerson/AddPerson";
 import Proteges from "./views/proteges/Proteges";
 import Settings from "./views/settings/Settings";
 import ProtegesInfo from "./views/protegesInfo/ProtegesInfo";
+import HistoryTraining from "./views/historyTraining/HistoryTraining";
+import HistoryInfo from "./views/historyInfo/HistoryInfo";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/proteges" component={Proteges} />
           <Route path="/settings" component={Settings} />
           <Route path="/protegesInfo" component={ProtegesInfo} />
+          <Route path="/historyTraining" component={HistoryTraining} />
+          <Route path="/historyInfo" component={HistoryInfo} />
           <Route component={PageNotFound} />
         </Switch>
         
