@@ -24,7 +24,7 @@ export default class About extends Component {
             oraz poszczególne zmiany będą widoczne na stronie.</p> 
         </div>
         </div>
-        <div className="row mr-0">
+        <div className="row mr-0 mb-3">
           <div
             id="carouselExampleIndicators"
             className="carousel slide col-4"

@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import "./ProtegesInfo.css";
 import piotri from "../../Pictures/protegesInfo/piotri.PNG";
 
+import { Link } from "react-router-dom";
+ 
+
 export default class ProtegesInfo extends Component {
   render() {
     return (
@@ -22,12 +25,14 @@ export default class ProtegesInfo extends Component {
                   </button>
                 </p>
                 <p>
+                  <Link to="/historyTraining">
                   <button
                     type="button"
                     className="col-4  btn btn-outline-warning"
                   >
                     Historia treningów
                   </button>
+                  </Link>
                 </p>
                 <p id="position">
                 <div class=" form-group row text-warning">
@@ -37,7 +42,7 @@ export default class ProtegesInfo extends Component {
                   <div className="col-sm-6">
                     <input
                       type="text"
-                      className="form-control col-8 bg-secondary text-white"
+                      className="form-control col-11 bg-secondary text-white"
                     />
                   </div>
                 </div>
@@ -48,7 +53,7 @@ export default class ProtegesInfo extends Component {
                   <div className="col-sm-6">
                     <input
                       type="text"
-                      className="form-control col-8 bg-secondary text-white"
+                      className="form-control col-11 bg-secondary text-white"
                     />
                   </div>
                 </div>
@@ -60,7 +65,7 @@ export default class ProtegesInfo extends Component {
                   <div className="col-sm-6">
                     <input
                       type="email"
-                      className="form-control col-8 bg-secondary text-white"
+                      className="form-control col-11 bg-secondary text-white"
                     />
                   </div>
                 </div>
@@ -71,7 +76,7 @@ export default class ProtegesInfo extends Component {
                   <div className="col-sm-6">
                     <input
                       type="number"
-                      className="form-control col-8 bg-secondary text-white"
+                      className="form-control col-11 bg-secondary text-white"
                     />
                   </div>
                 </div>
@@ -82,7 +87,7 @@ export default class ProtegesInfo extends Component {
                   <div className="col-sm-6">
                     <input
                       type="number"
-                      className="form-control col-8 bg-secondary text-white"
+                      className="form-control col-11 bg-secondary text-white"
                     />
                   </div>
                 </div>
@@ -93,7 +98,7 @@ export default class ProtegesInfo extends Component {
                   <div className="col-sm-6">
                     <input
                       type="number"
-                      className="form-control col-8 bg-secondary text-white"
+                      className="form-control col-11 bg-secondary text-white"
                     />
                   </div>
                 </div>
