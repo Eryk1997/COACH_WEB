@@ -1,78 +1,73 @@
+/* eslint-disable no-restricted-globals */
 import React, { Component } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
-import front from "../../Pictures/info/front.jpg";
-import gate from "../../Pictures/login/brama.jpg";
-import women from "../../Pictures/login/kobieta.jpg";
-import men from "../../Pictures/login/mezczyzna.jpg";
-import squat from "../../Pictures/login/przysiad.jpeg";
+import Proteges from "../../views/proteges/Proteges";
+
+import ImgFooter from "./ImgFooter";
+import InputLogin from "./InputLogin";
+import ImgFront from "./ImgFront";
+import ButtonsLogin from "./ButtonsLogin";
+import trainerService from '../../Service/trainerService'
 
 export default class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      password: "",
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    trainerService.login(this.state.email, this.state.password)
+  };
+
   render() {
-    return (
-      <div className="App">
-        <header className="">
-          <div className="row mr-0">
-            <div className="row mb-5 mr-5 col-5">
-              <img id="front-img" className="ml-5 mt-5" src={front} />
-            </div>
-            <div className="col-6 mt-5 text-warning">
-              <div className="text-center">Logowanie</div>
-              <div className="mt-4 ml-5">
-                <form>
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">
-                      Email
-                    </label>
-                    <div className="col-sm-10">
-                      <input
-                        type="email"
-                        className="form-control col-8 bg-secondary text-white"
-                        id="inputEmail3"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">
-                      Password
-                    </label>
-                    <div className="col-sm-10">
-                      <input
-                        type="password"
-                        className="form-control col-8 bg-secondary text-white"
-                        id="inputPassword3"
-                      />
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <button
-                      type="button"
-                      className="btn col-2 mr-4 mt-2 btn-outline-warning"
-                    >
-                      Zaloguj
-                    </button>
-                    <Link id="padding-buttons" to="/registration">
-                      <button
-                        type="button"
-                        className="btn col-2 mt-2 btn-outline-warning"
-                      >
-                        Rejestracja
-                      </button>
-                    </Link>
-                  </div>
-                </form>
+    if (!Cookies.get("status")) {
+      return (
+        <div className="App">
+          <header className="">
+            <div className="row mr-0">
+              <ImgFront />
+              <div className="col-6 mt-5 text-warning">
+                <div className="text-center">Logowanie</div>
+                <div className="mt-4 ml-5">
+                  <form onSubmit={this.handleSubmit}>
+                    <InputLogin
+                      nameField="Email"
+                      name="email"
+                      func={this.handleChange}
+                      val={this.state.email}
+                    />
+                    <InputLogin
+                      nameField="Hasło"
+                      name="password"
+                      func={this.handleChange}
+                      val={this.state.password}
+                    />
+                    <ButtonsLogin />
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="row ml-4 mr-4 ">
-            <img id="img-left" className="img-fluid col-3" src={gate} />
-            <img id="padding-img" className="img-fluid col-3" src={squat} />
-            <img id="padding-img" className="img-fluid col-3" src={men} />
-            <img id="img-right" className="img-fluid col-3" src={women} />
-          </div>
-        </header>
-      </div>
-    );
+            <div className="row ml-4 mr-4 ">
+              <ImgFooter />
+            </div>
+          </header>
+        </div>
+      );
+    } else {
+      return <Proteges />;
+    }
   }
 }

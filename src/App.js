@@ -15,13 +15,16 @@ import Settings from "./views/settings/Settings";
 import ProtegesInfo from "./views/protegesInfo/ProtegesInfo";
 import HistoryTraining from "./views/historyTraining/HistoryTraining";
 import HistoryInfo from "./views/historyInfo/HistoryInfo";
+import AddTraining from "./views/addTraining/AddTraining";
 
+
+import {ProtectedRoute} from './configuration/ProtectedRoute'
 function App() {
   return (
     <div className="App">
         <Navbar />
         <Switch>
-          <Route exact path="/about" component={About} />
+          <Route exact path="/" component={About} />
           <Route path="/login" component={Login} />
           <Route path="/registration" component={Registration} />
           <Route path="/addPerson" component={AddPerson} />
@@ -30,9 +33,9 @@ function App() {
           <Route path="/protegesInfo" component={ProtegesInfo} />
           <Route path="/historyTraining" component={HistoryTraining} />
           <Route path="/historyInfo" component={HistoryInfo} />
+          <Route path="/addTraining" component={AddTraining} />
           <Route component={PageNotFound} />
         </Switch>
-        
       <Footer />
     </div>
   );

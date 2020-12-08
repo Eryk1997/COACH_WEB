@@ -1,13 +1,25 @@
 import React, { Component } from "react";
 import men from "../../Pictures/proteges/men.png";
 import "./Proteges.css";
+import axios from "axios";
+import config from "../../Config/config";
+import Frame from './Frame'
+
 export default class Proteges extends Component {
-  render() {
+  constructor(props){
+    super(props)
+    this.state ={
+      pupils: [],
+    }
+  }
+
+ 
+
+  render() {      
     return (
       <div className="App">
         <header className="App-gradient">
           <div className="row mr-0">
-             
             <div className="m-5 col-2">
               <div class="card bg-secondary">
                 <img src={men} class="card-img-top" alt="..." />
@@ -20,8 +32,6 @@ export default class Proteges extends Component {
                 </div>
               </div>
             </div>
-            
-            
             <div className="m-5 col-2">
               <div class="card bg-secondary">
                 <img src={men} class="card-img-top" alt="..." />
@@ -34,8 +44,6 @@ export default class Proteges extends Component {
                 </div>
               </div>
             </div>
-
-            
             <div className="m-5 col-2">
               <div class="card bg-secondary">
                 <img src={men} class="card-img-top" alt="..." />
@@ -48,8 +56,6 @@ export default class Proteges extends Component {
                 </div>
               </div>
             </div>
-
-
             <div className="m-5 col-2">
               <div class="card bg-secondary">
                 <img src={men} class="card-img-top" alt="..." />
@@ -62,8 +68,6 @@ export default class Proteges extends Component {
                 </div>
               </div>
             </div>
-
-            
             <div className="m-5 col-2">
               <div class="card bg-secondary">
                 <img src={men} class="card-img-top" alt="..." />
@@ -75,8 +79,8 @@ export default class Proteges extends Component {
                   </button>
                 </div>
               </div>
-            </div>s
-
+            </div>
+            s
           </div>
         </header>
       </div>
