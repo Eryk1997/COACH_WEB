@@ -1,86 +1,86 @@
 import React, { Component } from "react";
-import men from "../../Pictures/proteges/men.png";
 import "./Proteges.css";
 import axios from "axios";
 import config from "../../Config/config";
-import Frame from './Frame'
+import Frame from "./Frame";
+import ReactPaginate from "react-paginate";
 
 export default class Proteges extends Component {
-  constructor(props){
-    super(props)
-    this.state ={
-      pupils: [],
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      contacts: [],
+      trainer: JSON.parse(localStorage.getItem("trainer")),
+
+      offset: 0,
+      elements: [],
+      perPage: 8,
+      currentPage: 0,
+    };
   }
 
- 
+  receiveData() {
+    axios
+      .get(config.getPupilsByTrainerId + this.state.trainer.id)
+      .then((json) =>
+        this.setState(
+          {
+            contacts: json.data,
+            pageCount: Math.ceil(json.data.length / this.state.perPage),
+          },
+          () => this.setElementsForCurrentPage()
+        )
+      )
+      .catch((err) => console.log(err));
+  }
 
-  render() {      
+  componentDidMount() {
+    this.receiveData(this.state.url);
+  }
+
+  setElementsForCurrentPage() {
+    let elements = this.state.contacts
+      .slice(this.state.offset, this.state.offset + this.state.perPage)
+      .map((post) => Frame(post));
+    this.setState({ elements: elements });
+  }
+
+  handlePageClick = (data) => {
+    const selectedPage = data.selected;
+    const offset = selectedPage * this.state.perPage;
+    this.setState({ currentPage: selectedPage, offset: offset }, () => {
+      this.setElementsForCurrentPage();
+    });
+  };
+
+  render() {
+    let paginationElement;
+    if (this.state.pageCount > 1) {
+      paginationElement = (
+        <ReactPaginate
+          previousLabel={"prev"}
+          nextLabel={"next"}
+          breakLabel={"..."}
+          breakClassName={"break-me"}
+          pageCount={this.state.pageCount}
+          forcePage={this.state.currentPage}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={this.handlePageClick}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"active"}
+        />
+      );
+    }
     return (
       <div className="App">
-        <header className="App-gradient">
-          <div className="row mr-0">
-            <div className="m-5 col-2">
-              <div class="card bg-secondary">
-                <img src={men} class="card-img-top" alt="..." />
-                <div class="card-body text-center text-warning">
-                  <h5 class="card-title">Imie Nazwisko</h5>
-                  <p class="card-text">Opis konta</p>
-                  <button type="button" className="btn btn-outline-warning">
-                    Przejdź do konta
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="m-5 col-2">
-              <div class="card bg-secondary">
-                <img src={men} class="card-img-top" alt="..." />
-                <div class="card-body text-center text-warning">
-                  <h5 class="card-title">Imie Nazwisko</h5>
-                  <p class="card-text">Opis konta</p>
-                  <button type="button" className="btn btn-outline-warning">
-                    Przejdź do konta
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="m-5 col-2">
-              <div class="card bg-secondary">
-                <img src={men} class="card-img-top" alt="..." />
-                <div class="card-body text-center text-warning">
-                  <h5 class="card-title">Imie Nazwisko</h5>
-                  <p class="card-text">Opis konta</p>
-                  <button type="button" className="btn btn-outline-warning">
-                    Przejdź do konta
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="m-5 col-2">
-              <div class="card bg-secondary">
-                <img src={men} class="card-img-top" alt="..." />
-                <div class="card-body text-center text-warning">
-                  <h5 class="card-title">Imie Nazwisko</h5>
-                  <p class="card-text">Opis konta</p>
-                  <button type="button" className="btn btn-outline-warning">
-                    Przejdź do konta
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="m-5 col-2">
-              <div class="card bg-secondary">
-                <img src={men} class="card-img-top" alt="..." />
-                <div class="card-body text-center text-warning">
-                  <h5 class="card-title">Imie Nazwisko</h5>
-                  <p class="card-text">Opis konta</p>
-                  <button type="button" className="btn btn-outline-warning">
-                    Przejdź do konta
-                  </button>
-                </div>
-              </div>
-            </div>
-            s
+        <header className="container-fluid">
+          <div className="row">
+          {this.state.elements}
+          </div>
+          <div className="row">
+          {paginationElement}
           </div>
         </header>
       </div>
