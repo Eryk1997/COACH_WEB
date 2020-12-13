@@ -23,6 +23,8 @@ export default class ProtegesInfo extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.deletePupil = this.deletePupil.bind(this);
+
   }
 
   handleChange(e) {
@@ -33,6 +35,10 @@ export default class ProtegesInfo extends Component {
     e.preventDefault();
     pupilService.updatePupil(this.state);
   };
+
+  deletePupil(){
+    pupilService.deletePupil()
+  }
 
   componentDidMount() {
     let createUrlWithId;
@@ -130,6 +136,13 @@ export default class ProtegesInfo extends Component {
                       className="btn col-4 mr-4 mt-2 mb-4 btn-outline-warning"
                     >
                       Zmień
+                    </button>
+                    <button
+                      type="button"
+                      onClick={this.deletePupil}
+                      className="btn col-4 mr-4 mt-2 mb-4 btn-outline-warning"
+                    >
+                      Usuń
                     </button>
                   </form>
                 </p>

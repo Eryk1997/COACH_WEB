@@ -7,6 +7,7 @@ let getPupilsByTrainerId = "http://localhost:8080/getPupilsByTrainerId/"
 let addPupilByTrainerId = "http://localhost:8080/addPupil"
 let getPupilById = "http://localhost:8080/pupil/";
 let updatePupilUrl = "http://localhost:8080/updatePupil/"
+let deletePupilByIdUrl = "http://localhost:8080/deletePupilById/"
 
 export default{
     registrationUrl,
@@ -18,4 +19,5 @@ export default{
     addPupilByTrainerId,
     getPupilById,
     updatePupilUrl,
+    deletePupilByIdUrl,
 }
