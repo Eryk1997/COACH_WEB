@@ -5,10 +5,12 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 import history from './history/history'
+import {trainerContext} from './Context/trainerContext'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router history={history}>
+      <trainerContext.Provider  />
     <App />
     </Router>
   </React.StrictMode>,

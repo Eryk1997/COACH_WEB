@@ -5,26 +5,25 @@ import "./Settings.css";
 import trainerService from "../../Service/trainerService";
 import InputSettings from "./InputSettings";
 import ButtonsSettings from "./ButtonsSettings";
+
+
+
 export default class Settings extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      trainer: JSON.parse(localStorage.getItem("trainer")),
+      trainer: JSON.parse(window.localStorage.getItem("trainer")),
       name: "",
       surname: "",
       email: "",
       password: "",
       passwordRepeat: "",
     };
-    this.reloadPage = this.reloadPage.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.deleteTrainer = this.deleteTrainer.bind(this);
   }
 
-  reloadPage() {
-    window.location.reload(true);
-  }
 
   handleChange(e) {
     const { name, value } = e.target;
@@ -37,18 +36,19 @@ export default class Settings extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log("xd")
   };
+
 
   render() {
     return (
+      
       <header className="App-gradient">
         {this.props.appointments}
         <div className="row mr-0 text-warning">
           <div className="ml-5 mt-5 col-4 text-center">
             <img id="img-settings" className="rounded-circle " src={piotri} />
             <p>
-              {this.state.trainer.name}
+              {this.state.trainer.name + " " + this.state.trainer.surname}
               <div className="mt-2 text-center"></div>
             </p>
             <p>

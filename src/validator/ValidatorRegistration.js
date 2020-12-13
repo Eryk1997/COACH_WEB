@@ -1,5 +1,5 @@
-import Cookies from 'js-cookie';
 import {SetTrainer} from '../model/Trainer/SetTrainer'
+import history from "../history/history";
 
 export function ValidatorRegistration(data, email){
     let elNameError = document.getElementById('errorName');
@@ -48,12 +48,8 @@ export function ValidatorRegistration(data, email){
     }
     else{
         alert("Zarejestrowano");
-        Cookies.set('status',true);
         SetTrainer(email);
-        window.location.reload()
-
-        //trainer.login(() => props.history.push('/proteges'))
-
+        history.push('/proteges')
 
         //czyszczenie
         elNameError.innerHTML = "";

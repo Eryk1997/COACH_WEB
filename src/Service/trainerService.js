@@ -5,6 +5,8 @@ import {ValidatorAttributesLogin} from '../validator/ValidatorAttributesLogin'
 import {ValidatorAttributesRegistration} from '../validator/ValidatorAttributesRegistration'
 import {ValidatorRegistration} from '../validator/ValidatorRegistration'
 import history from '../history/history'
+import Cookies from "js-cookie";
+
 const headers = {
     "Content-Type": "application/json",
   };
@@ -31,6 +33,7 @@ function login(email, password) {
     .post(config.loginUrl, data, {
       headers: headers,
       withCredentials: true,
+      secure: true
     })
     .then((res) => ValidatorLogin(res, data.email))
     .catch((err) => {

@@ -1,6 +1,6 @@
-import history from '../history/history'
+import history from "../history/history";
 
-export function ValidatorAddPupil(data) {
+export function ValidatorAddPupil(data, url) {
   let elNameError = document.getElementById("errorName");
   let elSurnameError = document.getElementById("errorSurname");
   let elEmailError = document.getElementById("errorEmail");
@@ -38,6 +38,8 @@ export function ValidatorAddPupil(data) {
       elEmailError.innerHTML = "Nieprawidłowe znaki";
     else if (data.includes("Email cannot be empty"))
       elEmailError.innerHTML = "Email nie może być pusty";
+    else if (data.includes("email already exists"))
+      elEmailError.innerHTML = "Email już jest zajęty";
     else elEmailError.innerHTML = "";
 
     //walidacja wzrostu
@@ -62,14 +64,13 @@ export function ValidatorAddPupil(data) {
     if (data.includes("age is too short"))
       elAgeError.innerHTML = "Wiek jest za niski";
     else if (data.includes("age is too long"))
-    elAgeError.innerHTML = "Wiek jest za wysoki";
+      elAgeError.innerHTML = "Wiek jest za wysoki";
     else if (data.includes("Age cannot be empty"))
-    elAgeError.innerHTML = "Wiek nie może być pusty";
+      elAgeError.innerHTML = "Wiek nie może być pusty";
     else elAgeError.innerHTML = "";
   } else {
-    alert("Dodano podopiecznego");
-    history.push('/proteges')
-    window.location.reload(true)
+    history.push(url);
+    window.location.reload(true);
 
     //czyszczenie
     elNameError.innerHTML = "";

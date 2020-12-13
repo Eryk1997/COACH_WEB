@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import Cookies from "js-cookie";
 
 import Logout from '../../views/logout/Logout'
 
