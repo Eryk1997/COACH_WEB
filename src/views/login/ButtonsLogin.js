@@ -7,6 +7,7 @@ export default class ButtonsLogin extends Component {
             <div className="text-center">
             <button
               type="submit"
+              id="buttonLogin"
               className="btn col-2 mr-4 mt-2 btn-outline-warning"
             >
               Zaloguj

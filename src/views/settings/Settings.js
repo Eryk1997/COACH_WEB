@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import piotri from "../../Pictures/settings/piotri.PNG";
+import men from "../../Pictures/proteges/men.png";
 import "./Settings.css";
 import trainerService from "../../Service/trainerService";
 import InputSettings from "./InputSettings";
@@ -36,6 +36,7 @@ export default class Settings extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    trainerService.updateTrainer(this.state)
   };
 
 
@@ -46,7 +47,7 @@ export default class Settings extends Component {
         {this.props.appointments}
         <div className="row mr-0 text-warning">
           <div className="ml-5 mt-5 col-4 text-center">
-            <img id="img-settings" className="rounded-circle " src={piotri} />
+            <img id="img-settings" className="rounded-circle " src={men} />
             <p>
               {this.state.trainer.name + " " + this.state.trainer.surname}
               <div className="mt-2 text-center"></div>

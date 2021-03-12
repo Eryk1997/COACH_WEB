@@ -35,7 +35,7 @@ export default class Proteges extends Component {
   }
 
   componentDidMount() {
-    this.receiveData(this.state.url);
+    this.receiveData();
   }
 
   setElementsForCurrentPage() {

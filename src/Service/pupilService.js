@@ -1,7 +1,7 @@
 import axios from "axios";
 import config from "../Config/config";
 import { ValidatorAddPupil } from "../validator/ValidatorAddPupil";
-import history from '../history/history'
+import history from "../history/history";
 
 const headers = {
   "Content-Type": "application/json",
@@ -11,6 +11,7 @@ const pupilService = {
   addPupil,
   updatePupil,
   deletePupil,
+  getPupil,
 };
 
 function addPupil(name, surname, email, weight, growth, age, id_trainer) {
@@ -91,14 +92,19 @@ function deletePupil() {
       withCredentials: true,
     })
     .then((res) => {
-      if(res.data){
+      if (res.data) {
         window.localStorage.removeItem("pupil");
-        history.push('/proteges')
-        window.location.reload(true)
+        history.push("/proteges");
+        window.location.reload(true);
       }
-
     })
     .catch((err) => console.log(err));
+}
+
+function getPupil() {
+  let pupil = JSON.parse(window.localStorage.getItem("pupil"));
+  if (pupil != null) return pupil;
+  else return "Nie znaleziono";
 }
 
 export default pupilService;

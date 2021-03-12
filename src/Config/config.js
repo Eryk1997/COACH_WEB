@@ -8,6 +8,13 @@ let addPupilByTrainerId = "http://localhost:8080/addPupil"
 let getPupilById = "http://localhost:8080/pupil/";
 let updatePupilUrl = "http://localhost:8080/updatePupil/"
 let deletePupilByIdUrl = "http://localhost:8080/deletePupilById/"
+let getExercises = "http://localhost:8080/findAllExercises"
+let addTraining = "http://localhost:8080/addTraining/"
+let updateTrainerUrl = "http://localhost:8080/trainers/"
+let findTrainingsByDateUrl = "http://localhost:8080/findTrainingsByDate/"
+let deleteTrainingByIdUrl = "http://localhost:8080/deleteTrainingById/"
+let getAllTrainingsByIdPupilUrl = "http://localhost:8080/getAllTrainingsByIdPupil/"
+let findDateTrainingByTrainingUrl = "http://localhost:8080/findDateTrainingByTraining/"
 
 export default{
     registrationUrl,
@@ -20,4 +27,11 @@ export default{
     getPupilById,
     updatePupilUrl,
     deletePupilByIdUrl,
+    getExercises,
+    addTraining,
+    updateTrainerUrl,
+    findTrainingsByDateUrl,
+    deleteTrainingByIdUrl,
+    getAllTrainingsByIdPupilUrl,
+    findDateTrainingByTrainingUrl,
 }

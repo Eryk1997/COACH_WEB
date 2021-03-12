@@ -22,20 +22,19 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-        <Switch>
-          <Route exact path="/" component={About} />
-          <Route path="/login" component={Login} />
-          <Route path="/registration" component={Registration} />
-          <ProtectedRoute path="/addPerson" component={AddPerson} />
-          <ProtectedRoute path="/proteges" component={Proteges} />
-          <ProtectedRoute path="/settings" component={Settings} />
-          <ProtectedRoute path="/pupilInfo" component={ProtegesInfo} />
-          <ProtectedRoute path="/historyTraining" component={HistoryTraining} />
-          <ProtectedRoute path="/historyInfo" component={HistoryInfo} />
-          <ProtectedRoute path="/addTraining" component={AddTraining} />
-          <Route component={PageNotFound} />
-        </Switch>
-
+      <Switch>
+        <Route exact path="/" component={About} />
+        <Route path="/login" component={Login} />
+        <Route path="/registration" component={Registration} />
+        <ProtectedRoute path="/addPerson" component={AddPerson} />
+        <ProtectedRoute path="/proteges" component={Proteges} />
+        <ProtectedRoute path="/settings" component={Settings} />
+        <ProtectedRoute path="/pupilInfo" component={ProtegesInfo} />
+        <ProtectedRoute path="/historyTraining" component={HistoryTraining} />
+        <ProtectedRoute path="/historyInfo" component={HistoryInfo} />
+        <ProtectedRoute path="/addTraining" component={AddTraining} />
+        <Route component={PageNotFound} />
+      </Switch>
       <Footer />
     </div>
   );

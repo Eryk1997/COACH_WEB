@@ -1,7 +1,7 @@
 import {SetTrainer} from '../model/Trainer/SetTrainer'
 import history from "../history/history";
 
-export function ValidatorRegistration(data, email){
+export function ValidatorUpdateTrainer(data, email){
     let elNameError = document.getElementById('errorName');
     let elSurnameError = document.getElementById('errorSurname');
     let elEmailError = document.getElementById('errorEmail');
@@ -48,7 +48,6 @@ export function ValidatorRegistration(data, email){
     }
     else{
         SetTrainer(email);
-        history.push('/proteges')
 
         //czyszczenie
         elNameError.innerHTML = "";

@@ -17,6 +17,7 @@ export default class InputPupilInfo extends Component {
               name={this.props.name}
               id={this.props.name}
               value={this.props.val}
+              placeholder={this.props.placeholderField}
               className="form-control col-11 bg-secondary text-white"
             />
           </div>

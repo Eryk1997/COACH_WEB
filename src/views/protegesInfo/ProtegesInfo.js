@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import "./ProtegesInfo.css";
-import piotri from "../../Pictures/protegesInfo/piotri.PNG";
+import men from "../../Pictures/proteges/men.png";
 
 import { Link } from "react-router-dom";
 import config from "../../Config/config";
@@ -24,7 +24,6 @@ export default class ProtegesInfo extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.deletePupil = this.deletePupil.bind(this);
-
   }
 
   handleChange(e) {
@@ -36,8 +35,8 @@ export default class ProtegesInfo extends Component {
     pupilService.updatePupil(this.state);
   };
 
-  deletePupil(){
-    pupilService.deletePupil()
+  deletePupil() {
+    pupilService.deletePupil();
   }
 
   componentDidMount() {
@@ -60,18 +59,20 @@ export default class ProtegesInfo extends Component {
         <header className="App-gradient">
           <div className="row mr-0">
             <div className="col-5 text-center mt-5">
-              <img id="img-rounded" src={piotri} />
+              <img className="col-5" id="img-rounded" src={men} />
               <p className="text-warning">
                 {this.state.pupil.name + " " + this.state.pupil.surname}
               </p>
               <div>
                 <p>
-                  <button
-                    type="button"
-                    className="col-4 btn btn-outline-warning"
-                  >
-                    Dodaj trening
-                  </button>
+                  <Link to="/addTraining">
+                    <button
+                      type="button"
+                      className="col-4 btn btn-outline-warning"
+                    >
+                      Dodaj trening
+                    </button>
+                  </Link>
                 </p>
                 <p>
                   <Link to="/historyTraining">
@@ -91,6 +92,7 @@ export default class ProtegesInfo extends Component {
                       typeField="text"
                       func={this.handleChange}
                       val={this.state.name}
+                      placeholderField={this.state.pupil.name}
                     />
                     <InputPupilInfo
                       nameField="Nazwisko"
@@ -98,6 +100,7 @@ export default class ProtegesInfo extends Component {
                       typeField="text"
                       func={this.handleChange}
                       val={this.state.surname}
+                      placeholderField={this.state.pupil.surname}
                     />
 
                     <InputPupilInfo
@@ -106,6 +109,7 @@ export default class ProtegesInfo extends Component {
                       typeField="email"
                       func={this.handleChange}
                       val={this.state.email}
+                      placeholderField={this.state.pupil.email}
                     />
 
                     <InputPupilInfo
@@ -114,6 +118,7 @@ export default class ProtegesInfo extends Component {
                       typeField="number"
                       func={this.handleChange}
                       val={this.state.growth}
+                      placeholderField={this.state.pupil.growth}
                     />
 
                     <InputPupilInfo
@@ -122,6 +127,7 @@ export default class ProtegesInfo extends Component {
                       typeField="number"
                       func={this.handleChange}
                       val={this.state.weight}
+                      placeholderField={this.state.pupil.weight}
                     />
 
                     <InputPupilInfo
@@ -130,6 +136,7 @@ export default class ProtegesInfo extends Component {
                       typeField="number"
                       func={this.handleChange}
                       val={this.state.age}
+                      placeholderField={this.state.pupil.age}
                     />
                     <button
                       type="submit"
