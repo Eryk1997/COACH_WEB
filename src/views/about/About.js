@@ -19,9 +19,7 @@ export default class About extends Component {
         </div>
         <div className="mt-5 col-6 text-warning text-center">
           <p id="info-padding">Informacje</p>
-          <p>Aplikacja powstała w celu projektu pracy inżynierskiej.</p>
-            <p>Wszystkie niezbędne elementy
-            oraz poszczególne zmiany będą widoczne na stronie.</p> 
+          <p>Aplikacja powstała w ramach pracy inżynierskiej.</p> 
         </div>
         </div>
         <div className="row mr-0 mb-3">

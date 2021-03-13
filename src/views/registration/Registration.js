@@ -1,115 +1,104 @@
 import React, { Component } from "react";
 import "./Registration.css";
-import { Link } from "react-router-dom";
 
-import front from "../../Pictures/info/front.jpg";
+import RegistrationButtons from './RegistrationButtons';
+import ImgFooter from "./ImgFooter";
+import ImgFront from "./ImgFront";
+import InputRegistration from "./InputRegistration";
 
-import bench from "../../Pictures/registration/lawka.jpg";
-import women from "../../Pictures/registration/kobieta.jpg";
-import men from "../../Pictures/registration/mezczyzna.jpg";
-import kick from "../../Pictures/registration/kop.jpg";
+import Cookies from "js-cookie";
+import Proteges from "../../views/proteges/Proteges";
+
+import trainerService from '../../Service/trainerService'
 
 export default class Registration extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      surname: "",
+      email: "",
+      password: "",
+      passwordRepeat: "",
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  }
+
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    trainerService.register(this.state);
+
+  };
+
   render() {
-    return (
-      <div className="App">
-        <header className="App-gradient">
-          <div className="row mr-0">
-            <div className="row mb-5 mr-5 col-5">
-              <img id="front-img" className="ml-5 mt-5" src={front} />
-            </div>
-            <div className="col-6 text-warning">
-              <p id="wrapper-registration">Rejestracja</p>
-              <div className="mt-4 ml-5 text-center">
-                <form>
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-3 col-form-label">
-                      Imie
-                    </label>
-                    <div className="col-sm-9">
-                      <input
-                        type="text"
-                        className="form-control col-8 bg-secondary text-white"
-                        id="inputEmail3"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-3 col-form-label">
-                      Nazwisko
-                    </label>
-                    <div className="col-sm-9">
-                      <input
-                        type="text"
-                        className="form-control col-8 bg-secondary text-white"
-                        id="inputEmail3"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-3 col-form-label">
-                      Email
-                    </label>
-                    <div className="col-sm-9">
-                      <input
-                        type="email"
-                        className="form-control col-8 bg-secondary text-white"
-                        id="inputPassword3"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-3 col-form-label">
-                      Hasło
-                    </label>
-                    <div className="col-sm-9">
-                      <input
-                        type="password"
-                        className="form-control col-8 bg-secondary text-white"
-                        id="inputEmail3"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-3 col-form-label">
-                      Powtórz hasło
-                    </label>
-                    <div className="col-sm-9">
-                      <input
-                        type="password"
-                        className="form-control col-8 bg-secondary text-white"
-                        id="inputPassword3"
-                      />
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <Link className="" to="/login">
-                      <button
-                        type="button"
-                        className="btn col-2 mr-3 mt-2 btn-outline-warning"
-                      >
-                        Zaloguj
-                      </button>
-                    </Link>
-                    <button
-                      type="button"
-                      className="btn col-2 mt-2 btn-outline-warning"
-                    >
-                      Rejestracja
-                    </button>
-                  </div>
-                </form>
+    if (!Cookies.get("status")) {
+      return (
+        <div className="App">
+          <header className="App-gradient">
+            <div className="row mr-0">
+              <ImgFront />
+              <div className="col-6 text-warning">
+                <p id="wrapper-registration">Rejestracja</p>
+                <div className="mt-4 ml-5 text-center">
+                  <form onSubmit={this.handleSubmit}>
+                    <InputRegistration
+                      fieldName="Imie"
+                      name="name"
+                      type="text"
+                      func={this.handleChange}
+                      value={this.state.name}
+                    />
+
+                    <InputRegistration
+                      fieldName="Nazwisko"
+                      name="surname"
+                      type="text"
+                      func={this.handleChange}
+                      value={this.state.surname}
+                    />
+                    
+                    <InputRegistration
+                      fieldName="Email"
+                      name="email"
+                      type="email"
+                      func={this.handleChange}
+                      value={this.state.email}
+                    />
+                    
+                    <InputRegistration
+                      fieldName="Hasło"
+                      name="password"
+                      type="password"
+                      func={this.handleChange}
+                      value={this.state.password}
+                    />
+                   
+                   <InputRegistration
+                      fieldName="Powtórz Hasło"
+                      name="passwordRepeat"
+                      type="password"
+                      func={this.handleChange}
+                      value={this.state.passwordRepeat}
+                    />
+
+                  <RegistrationButtons />
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="row ml-4 mr-4 ">
-            <img id="img-left" className="img-fluid col-3" src={bench} />
-            <img id="padding-img" className="img-fluid col-3" src={kick} />
-            <img id="padding-img" className="img-fluid col-3" src={men} />
-            <img id="img-right" className="img-fluid col-3" src={women} />
-          </div>
-        </header>
-      </div>
-    );
+            <ImgFooter />
+          </header>
+        </div>
+      );
+    } else {
+      return <Proteges />;
+    }
   }
 }

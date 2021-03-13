@@ -7,3 +7,7 @@
       border-radius: 80px;
       width: 30%;
   }
+
+::-webkit-input-placeholder{
+    color: red;
+}
